@@ -1,11 +1,14 @@
 <?php
 
 // La page index est une liste des albums
-Route::get('/', function() {
-    $albums = Album::with('user')->order_by('updated_at', 'desc')->paginate(5);
-    return View::make('home')
-        ->with('albums', $albums);
-});
+// Route::get('/', function() {
+//     $albums = Album::with('user')->order_by('updated_at', 'desc')->paginate(5);
+//     return View::make('home')
+//         ->with('albums', $albums);
+// });
+
+Route::controller(Controller::detect());
+
 
 Route::get('admin', array('before' => 'auth', 'do' => function() {
     $user = Auth::user();
