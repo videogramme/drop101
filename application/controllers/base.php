@@ -9,6 +9,11 @@ class Base_Controller extends Controller {
 	 * @param  array     $parameters
 	 * @return Response
 	 */
+
+	public function __construct(){
+		echo('ioioioio');
+	}
+
 	public function __call($method, $parameters)
 	{
 		return Response::error('404');

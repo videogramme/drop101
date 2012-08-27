@@ -1,6 +1,6 @@
 <?php
 
-class Admin_Controller extends Base_Controller {
+class Home_Controller extends Base_Controller {
 
 	/*
 	|--------------------------------------------------------------------------
@@ -30,9 +30,11 @@ class Admin_Controller extends Base_Controller {
 	|
 	*/
 
-	/*public function action_index()
+	public function action_index()
 	{
-		return View::make('home.index');
+		$albums = Album::with('user')->order_by('updated_at', 'desc')->paginate(5);
+			return View::make('home')
+            ->with('albums', $albums);
 	}
-*/
+
 }

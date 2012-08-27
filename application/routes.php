@@ -10,10 +10,35 @@
 Route::controller(Controller::detect());
 
 
+
+
+
 Route::get('admin', array('before' => 'auth', 'do' => function() {
     $user = Auth::user();
     return View::make('new')->with('user', $user);
 }));
+Route::get('dashboard', array('before' => 'auth', 'do' => function() {
+    $albums = Album::with('user')->order_by('updated_at', 'desc')->paginate(5);
+    return View::make('dashboard')
+        ->with('albums', $albums);
+}));
+
+// Route::get('admin', array('before' => 'auth', 'do' => function() {
+//     $user = Auth::user();
+//     return View::make('new')->with('user', $user);
+// }));
+
+// poste un nouvel album
+// Route::get('dashboard/new', array('before' => 'auth', 'do' => function() {
+//     $user = Auth::user();
+//     return View::make('dashboard.new')->with('user', $user);
+// }));
+
+//
+//
+//
+
+
 
 
 // Route pour la page admin/new
