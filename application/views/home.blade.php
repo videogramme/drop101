@@ -1,13 +1,6 @@
 @layout('templates.main')
 @section('content')
-	
- 	@if (Session::has('success_message'))
- 		<div class="span8">
-        {{ Alert::success("Success! Album deleted!") }}
-    	</div>
-    @endif
-
-
+		
     @foreach ($albums -> results as $album)
         <div class="span8">
             <h1>{{ $album->name }}</h1>
@@ -28,6 +21,7 @@
 		</div>
         
     @endforeach
+    
 @endsection
 
 @section('pagination')

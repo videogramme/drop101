@@ -1,6 +1,12 @@
 @layout('templates.dashboard')
 @section('content')
     
+@if (Session::has('success_message'))
+        <div class="span8">
+        {{ Alert::success("Success! Album deleted!") }}
+        </div>
+@endif
+
     <table class="table">
         <tr>
             <th></th>
@@ -28,4 +34,18 @@
         @endforeach
 
     </table>
+
+    {{ Form::open('album/'.$album->id, 'PUT')}}
+        <p>{{ Form::submit('Enlever', array('class' => 'btn-small')) }}</p>
+    {{ Form::close() }} 
+
+
+@endsection
+
+@section('pagination')
+        <div class="row">
+            <div class="span8">
+                {{ $albums -> links(); }}
+             </div>
+        </div>
 @endsection

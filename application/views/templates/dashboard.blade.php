@@ -8,7 +8,7 @@
     <meta name="author" content="">
     {{ Asset::container('bootstrapper')->styles(); }}
     <style>
-      body {
+      body{
         padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
       }
     </style>
@@ -26,12 +26,12 @@
           <a class="brand" href="{{ URL::base() }}">Drop ASBL</a>
           <div class="btn-group pull-right">
                 
-             @if ( Auth::guest() )
-              <a class="btn" href="{{ URL::to('login')}}">
-                <i class="icon-user"></i> Login
-              </a>
+            @if ( Auth::guest() )
+                <a class="btn" href="{{ URL::to('login')}}">
+                  <i class="icon-user"></i> Login
+                </a>
             @else
-            Welcome, <strong>{{ HTML::link('admin', Auth::user()->username) }} </strong> |
+                Welcome, <strong>{{ HTML::link('admin', Auth::user()->username) }} </strong> |
                 {{ HTML::link('logout', 'Logout') }}
             @endif
                 
@@ -40,8 +40,8 @@
             <ul class="nav">
               <li>{{ HTML::link('dashboard', 'Dashboard'); }}</li>
               @if ( !Auth::guest() )
-              <li><a href="{{ URL::to('dashboard/new') }}">Create New</a></li>
-              <li><a href="{{ URL::to('dashboard/uploader') }}">Upload new</a></li>
+                <li><a href="{{ URL::to('dashboard/new') }}">Create New</a></li>
+                <li><a href="{{ URL::to('dashboard/uploader') }}">Upload new</a></li>
               @endif
             </ul>
           </div><!--/.nav-collapse -->

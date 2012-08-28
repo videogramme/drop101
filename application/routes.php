@@ -1,6 +1,6 @@
 <?php
 
-//  Route::controller(Controller::detect());
+Route::controller(Controller::detect());
 
 //  La page index est une liste des albums
 Route::get('/', function() {
@@ -44,7 +44,7 @@ Route::get('logout', function() {
 
 // La route vers le panneau d'admin
 Route::get('dashboard', array('before' => 'auth', 'do' => function() {
-    $albums = Album::with('user')->order_by('updated_at', 'desc')->paginate(5);
+    $albums = Album::with('user')->order_by('updated_at', 'desc')->paginate(15);
     return View::make('dashboard')
         ->with('albums', $albums);
 }));
@@ -59,12 +59,26 @@ Route::get('dashboard/new', array('before' => 'auth', 'do' => function() {
 
 
 
-
 Route::delete('album/(:num)', array('before' => 'auth', 'do' => function($id){
     $delete_album = Album::with('user')->find($id);
     $delete_album -> delete();
-    return Redirect::to('/')
+    return Redirect::to('dashboard')
             ->with('success_message', true);
+})) ;
+
+//
+//??????????
+// enlever un album
+Route::put('album/(:num)', array('before' => 'auth', 'do' => function($id){
+    // $put_album = Album::with('user')->find($id);
+
+    echo ('io');
+
+    // $put_album = Album::with('albums')->find($id);
+    // var_dump($put_album);
+    // $put_album -> delete();
+    // return Redirect::to('dashboard')
+    //         ->with('success_message', true);
 })) ;
 
 
@@ -109,6 +123,67 @@ Route::post('admin/new', array('before' => 'auth', 'do' => function() {
     // redirect vers la main du dashboard
     return Redirect::to('/dashboard');
 }));
+
+
+
+
+
+
+
+
+//
+//
+//
+//
+//
+// Live search route
+Route::post('liveSearch', function() {
+
+    // Checking if it's an ajax request
+    if (Request::ajax()) {
+
+        // Getting ajax request
+        $searchInput = Input::get('searchInput');
+
+        // Making sure input is not empty
+        if ($searchInput != '') {
+
+            // Getting info from DB
+            $addons = Addon::where('name', 'LIKE', '%'.$searchInput.'%')->order_by('name')->take(4)->get();
+            $tags = Tag::where('name', 'LIKE', '%'.$searchInput.'%')->order_by('name')->take(4)->get();
+
+            echo '<div class="six columns">';
+            echo '<ul id="searchResults">';
+            echo '<li>Addons ►</li>';
+
+            // Sending back array info
+            foreach ($addons as $addon) {
+                echo '<li class="helperResult">'.HTML::link('addon?id='.$addon->id, $addon->name).'</li>';
+            }
+            echo '</ul>';
+            echo '</div>';
+
+            echo '<div class="six columns">';
+            echo '<ul id="searchResults">';
+            echo '<li>Tags ►</li>';
+
+            // Sending back array info
+            foreach ($tags as $tag) {
+                echo '<li class="helperResult">'.HTML::link('tag?tag='.$tag->id, $tag->name).'</li>';
+            }
+            echo '</ul>';
+            echo '</div>';
+        }else{
+
+            // var_dump($searchInput);
+        }
+    }
+});
+
+
+
+
+
 
 
 
