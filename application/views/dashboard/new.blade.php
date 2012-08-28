@@ -5,6 +5,8 @@
     <hr />
     {{ Form::open('admin') }}
     	{{ Form::hidden('user_id', $user->id) }}
+
+
         <!-- Champ nom -->
         <p>{{ Form::label('name', 'Titre de l\'album') }}</p>
         {{ $errors->first('name', Alert::error(":message")) }}
