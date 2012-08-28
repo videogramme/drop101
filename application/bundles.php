@@ -37,4 +37,5 @@ return array(
 	'bob',
 	'bootstrapper' => array('auto' => true),
 	'docs' => array('handles' => 'docs'),
+	'jload',
 );
