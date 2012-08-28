@@ -19,6 +19,11 @@
             <td>{{ $album->artist}}</td>
             <td>{{ $album->price}}</td>
             <td>{{ $album->quantity}}</td>
+            <td>
+                {{ Form::open('album/'.$album->id, 'DELETE')}}
+                <p>{{ Form::submit('Delete', array('class' => 'btn-small')) }}</p>
+                {{ Form::close() }}
+            </td>    
         </tr>
         @endforeach
 

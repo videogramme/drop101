@@ -11,17 +11,47 @@ Route::get('/', function() {
 
 
 
-// Route::get('admin', array('before' => 'auth', 'do' => function() {
-//     $user = Auth::user();
-//     return View::make('new')->with('user', $user);
-// }));
+// Avoir le login
+Route::get('login', function() {
+    return View::make('login');
+});
+
+// Process the login form
+Route::post('login', function() {
+
+    $userinfo = array(
+        'username' => Input::get('username'),
+        'password' => Input::get('password')
+    );
+    if ( Auth::attempt($userinfo) )
+    {
+        return Redirect::to('dashboard');
+    }
+    else
+    {
+        return Redirect::to('login')
+            ->with('login_errors', true);
+    }
+});
+
+// Process Logout process
+Route::get('logout', function() {
+    Auth::logout();
+    return Redirect::to('/');
+});
+
+
+
+// La route vers le panneau d'admin
 Route::get('dashboard', array('before' => 'auth', 'do' => function() {
     $albums = Album::with('user')->order_by('updated_at', 'desc')->paginate(5);
     return View::make('dashboard')
         ->with('albums', $albums);
 }));
 
-//poste un nouvel album
+
+
+// La route vers la page de création d'un nouvelle album
 Route::get('dashboard/new', array('before' => 'auth', 'do' => function() {
     $user = Auth::user();
     return View::make('dashboard.new')->with('user', $user);
@@ -29,33 +59,6 @@ Route::get('dashboard/new', array('before' => 'auth', 'do' => function() {
 
 
 
-//
-//
-//
-
-
-
-
-// Route pour la page admin/new
-/*Route::get('admin/new-album', array('before' => 'auth', 'do' => function() {
-	$user = Auth::user();
-    return View::make('new-album')->with('user', $user);
-}));
-*/
-/* grouping routes 
-Route::group(array('before' => 'auth'), function()
-{
-    Route::get('panel', function()
-    {
-        //
-    });
-
-    Route::get('dashboard', function()
-    {
-        //
-    });
-});
-*/
 
 Route::delete('album/(:num)', array('before' => 'auth', 'do' => function($id){
     $delete_album = Album::with('user')->find($id);
@@ -66,7 +69,7 @@ Route::delete('album/(:num)', array('before' => 'auth', 'do' => function($id){
 
 
 // Sav dans db l'album
-Route::post('admin', array('before' => 'auth', 'do' => function() {
+Route::post('admin/new', array('before' => 'auth', 'do' => function() {
 
     $new_album = array(
         'name'    => Input::get('name'),
@@ -109,36 +112,79 @@ Route::post('admin', array('before' => 'auth', 'do' => function() {
 
 
 
-// Avoir le login
-Route::get('login', function() {
-	return View::make('login');
-});
 
 
 
-// Process the login form
-Route::post('login', function() {
+//
+//
+//
+Route::get('dashboard/uploader', array('before' => 'auth', 'do' => function() {
+    $user = Auth::user();
+    return View::make('dashboard.uploader')->with('user', $user);
+}));
+//
+Route::any('dashboard/upload', function()
+{
 
-	$userinfo = array(
-        'username' => Input::get('username'),
-        'password' => Input::get('password')
-    );
-    if ( Auth::attempt($userinfo) )
+    $upload_handler = IoC::resolve('uploadhandler');
+
+    header('Pragma: no-cache');
+    header('Cache-Control: no-store, no-cache, must-revalidate');
+    header('Content-Disposition: inline; filename="files.json"');
+    header('X-Content-Type-Options: nosniff');
+    header('Access-Control-Allow-Origin: *');
+    header('Access-Control-Allow-Methods: OPTIONS, HEAD, GET, POST, PUT, DELETE');
+    header('Access-Control-Allow-Headers: X-File-Name, X-File-Type, X-File-Size');
+
+    switch ($_SERVER['REQUEST_METHOD']) 
     {
-        return Redirect::to('dashboard');
-    }
-    else
-    {
-        return Redirect::to('login')
-            ->with('login_errors', true);
+        case 'OPTIONS':
+            break;
+        case 'HEAD':
+        case 'GET':
+            $upload_handler->get();
+            break;
+        case 'POST':
+            if (isset($_REQUEST['_method']) && $_REQUEST['_method'] === 'DELETE') {
+                $upload_handler->delete();
+            } else {
+                $upload_handler->post();
+            }
+            break;
+        case 'DELETE':
+            $upload_handler->delete();
+            break;
+        default:
+            header('HTTP/1.1 405 Method Not Allowed');
     }
 });
 
-// Process Logout process
-Route::get('logout', function() {
-	Auth::logout();
-    return Redirect::to('/');
+
+
+
+// Route pour la page admin/new
+/*Route::get('admin/new-album', array('before' => 'auth', 'do' => function() {
+	$user = Auth::user();
+    return View::make('new-album')->with('user', $user);
+}));
+*/
+/* grouping routes 
+Route::group(array('before' => 'auth'), function()
+{
+    Route::get('panel', function()
+    {
+        //
+    });
+
+    Route::get('dashboard', function()
+    {
+        //
+    });
 });
+*/
+
+
+
 
 
 /*

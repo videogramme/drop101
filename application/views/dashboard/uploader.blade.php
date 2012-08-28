@@ -1,11 +1,25 @@
-@layout('templates.dashboard')
+@layout('templates.dashboard_uploader')
 @section('content')
 <div class="span8">
     <h2>Ajouter un Album</h2>
     <hr />
 
-    {{ Form::open('admin/new') }}
+
+
+
+
+
+
+
+    {{ Form::open('admin') }}
     	{{ Form::hidden('user_id', $user->id) }}
+
+
+
+
+
+
+
 
         <!-- Champ nom -->
         <p>{{ Form::label('name', 'Titre de l\'album') }}</p>
@@ -47,6 +61,5 @@
         <!-- submit button -->
         <p>{{ Form::submit('Create') }}</p>
     {{ Form::close() }}
-
 </div>
 @endsection

@@ -76,10 +76,17 @@
 	},
 	"file_history":
 	[
+		"/Applications/MAMP/htdocs/drop101/application/views/templates/dashboard.blade.php",
+		"/Applications/MAMP/htdocs/drop101/application/routes.php",
+		"/Applications/MAMP/htdocs/drop101/bundles/jqueryfileupload/README.md",
+		"/Applications/MAMP/htdocs/drop101/application/bundles.php",
+		"/Applications/MAMP/htdocs/drop101/bundles/jqueryfileupload/config/fileupload.php",
+		"/Applications/MAMP/htdocs/drop101/application/start.php",
+		"/Applications/MAMP/htdocs/drop101/application/views/dashboard/new.blade.php",
+		"/Applications/MAMP/htdocs/drop101/application/config/session.php",
+		"/Applications/MAMP/htdocs/drop101/application/views/dashboard.blade.php",
 		"/Applications/MAMP/htdocs/drop101/application/views/templates/main.blade.php",
 		"/Applications/MAMP/htdocs/drop101/application/views/dashboard/new.php",
-		"/Applications/MAMP/htdocs/drop101/application/views/dashboard.blade.php",
-		"/Applications/MAMP/htdocs/drop101/application/routes.php",
 		"/Applications/MAMP/htdocs/drop101_sav02/application/views/dashboard.blade.php",
 		"/Applications/MAMP/htdocs/drop101/application/views/login.blade.php",
 		"/Applications/MAMP/htdocs/drop101/application/controllers/login.php",
@@ -93,8 +100,6 @@
 		"/Applications/MAMP/htdocs/drop101/bundles/orchestra/docs/README.md",
 		"/Applications/MAMP/htdocs/drop101/artisan",
 		"/Applications/MAMP/htdocs/drop101/application/migrations/2012_07_28_000002_create_albums.php",
-		"/Applications/MAMP/htdocs/drop101/application/start.php",
-		"/Applications/MAMP/htdocs/drop101/application/bundles.php",
 		"/Applications/MAMP/htdocs/drop101_sav01/artisan",
 		"/Applications/MAMP/bin/php/php5.4.4/bin/pear",
 		"/Applications/MAMP/htdocs/drop101/index1.php",
@@ -217,6 +222,6 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 201.0,
+	"side_bar_width": 228.0,
 	"status_bar_visible": true
 }

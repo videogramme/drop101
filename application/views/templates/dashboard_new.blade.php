@@ -12,10 +12,10 @@
         padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
       }
     </style>
-    {{ Asset::container('bootstrapper')->scripts(); }} 
+    {{ Asset::container('bootstrapper')->scripts(); }}
 </head>
 <body>
-     <div class="navbar navbar-fixed-top">
+    <div class="navbar navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container-fluid">
           <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
@@ -26,14 +26,14 @@
           <a class="brand" href="{{ URL::base() }}">Drop ASBL</a>
           <div class="btn-group pull-right">
                 
-             @if ( Auth::guest() )
-              <a class="btn" href="{{ URL::to('login')}}">
-                <i class="icon-user"></i> Login
-              </a>
-            @else
-            Welcome, <strong>{{ HTML::link('admin', Auth::user()->username) }} </strong> |
-                {{ HTML::link('logout', 'Logout') }}
-            @endif
+                @if ( Auth::guest() )
+                  <a class="btn" href="{{ URL::to('login')}}">
+                    <i class="icon-user"></i> Login
+                  </a>
+                @else
+                Welcome, <strong>{{ HTML::link('admin', Auth::user()->username) }} </strong> |
+                    {{ HTML::link('logout', 'Logout') }}
+                @endif
                 
           </div>
           <div class="nav-collapse">
@@ -49,13 +49,6 @@
       </div>
     </div>
 
-
-
-
-
-
-
-
     <div class="container">
           <div class="row">
             @yield('content')
@@ -68,7 +61,6 @@
             <p>Drop ASBL &copy; 2012</p>
         </footer>
     </div>
-
 
 </body>
 </html>
