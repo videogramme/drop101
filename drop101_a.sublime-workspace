@@ -1,0 +1,222 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"in",
+				"input	Tag"
+			],
+			[
+				"da",
+				"dashboard"
+			],
+			[
+				"F",
+				"Form"
+			],
+			[
+				"album",
+				"album_author"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 47.0,
+		"selected_items":
+		[
+			[
+				"consol",
+				"Set Syntax: R Console"
+			],
+			[
+				"conso",
+				"Set Syntax: R Console"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				"ins",
+				"Package Control: Install Package"
+			],
+			[
+				"pac",
+				"Package Control: Install Package"
+			],
+			[
+				"html",
+				"HTML: Encode Special Characters"
+			]
+		],
+		"width": 392.0
+	},
+	"console":
+	{
+		"height": 125.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/Applications/MAMP/htdocs/drop101/application/views/templates/main.blade.php",
+		"/Applications/MAMP/htdocs/drop101/application/views/dashboard/new.php",
+		"/Applications/MAMP/htdocs/drop101/application/views/dashboard.blade.php",
+		"/Applications/MAMP/htdocs/drop101/application/routes.php",
+		"/Applications/MAMP/htdocs/drop101_sav02/application/views/dashboard.blade.php",
+		"/Applications/MAMP/htdocs/drop101/application/views/login.blade.php",
+		"/Applications/MAMP/htdocs/drop101/application/controllers/login.php",
+		"/Applications/MAMP/htdocs/drop101/application/views/home/index.blade.php",
+		"/Applications/MAMP/htdocs/drop101/application/views/home.blade.php",
+		"/Applications/MAMP/htdocs/drop101/application/views/new.blade.php",
+		"/Applications/MAMP/htdocs/drop101/application/controllers/home.php",
+		"/Applications/MAMP/htdocs/drop101/application/controllers/base.php",
+		"/Applications/MAMP/htdocs/drop101/application/config/application.php",
+		"/Applications/MAMP/htdocs/drop101/bundles/orchestra/docs/contents.md",
+		"/Applications/MAMP/htdocs/drop101/bundles/orchestra/docs/README.md",
+		"/Applications/MAMP/htdocs/drop101/artisan",
+		"/Applications/MAMP/htdocs/drop101/application/migrations/2012_07_28_000002_create_albums.php",
+		"/Applications/MAMP/htdocs/drop101/application/start.php",
+		"/Applications/MAMP/htdocs/drop101/application/bundles.php",
+		"/Applications/MAMP/htdocs/drop101_sav01/artisan",
+		"/Applications/MAMP/bin/php/php5.4.4/bin/pear",
+		"/Applications/MAMP/htdocs/drop101/index1.php",
+		"/C/wamp/www/drop100/chemin wordpress",
+		"/C/wamp/www/drop100/drop100.sublime-workspace",
+		"/Applications/MAMP/htdocs/drop101/application/views/new-album.blade.php",
+		"/C/wamp/www/wordpress/wp-config.php",
+		"/Applications/MAMP/htdocs/drop101/bundles/scribe/routes.php",
+		"/C/wamp/www/drop100/application/models/user.php",
+		"/C/wamp/www/drop100/application/models/album.php",
+		"/C/wamp/www/drop100/application/migrations/2012_07_28_024855_create_users.php",
+		"/C/wamp/www/drop100/application/migrations/2012_07_28_025521_create_albums.php",
+		"/C/wamp/www/drop100/application/views/error/404.php",
+		"/C/wamp/www/drop100/application/views/templates/main.blade.php",
+		"/C/wamp/www/drop100/application/config/database.php",
+		"/C/wamp/apps/phpmyadmin3.5.1/config.inc.php",
+		"/C/wamp/www/drop01/application/config/application.php",
+		"/C/wamp/www/drop01/application/config/database.php",
+		"/C/Users/student/Dropbox/formation/18_end/cv/index.html",
+		"/C/wamp/www/drop10/models/DBConnectHelper.php",
+		"/C/Users/student/AppData/Local/Temp/fz3temp-1/resume.php"
+	],
+	"find":
+	{
+		"height": 34.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"d",
+			"p",
+			"album_author",
+			"post"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"h",
+			"album"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"replace":
+	{
+		"height": 62.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 201.0,
+	"status_bar_visible": true
+}

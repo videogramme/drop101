@@ -1,38 +1,33 @@
 <?php
 
-// La page index est une liste des albums
-// Route::get('/', function() {
-//     $albums = Album::with('user')->order_by('updated_at', 'desc')->paginate(5);
-//     return View::make('home')
-//         ->with('albums', $albums);
-// });
+//  Route::controller(Controller::detect());
 
-Route::controller(Controller::detect());
-
-
+//  La page index est une liste des albums
+Route::get('/', function() {
+    $albums = Album::with('user')->order_by('updated_at', 'desc')->paginate(5);
+    return View::make('home')
+        ->with('albums', $albums);
+});
 
 
 
-Route::get('admin', array('before' => 'auth', 'do' => function() {
-    $user = Auth::user();
-    return View::make('new')->with('user', $user);
-}));
+// Route::get('admin', array('before' => 'auth', 'do' => function() {
+//     $user = Auth::user();
+//     return View::make('new')->with('user', $user);
+// }));
 Route::get('dashboard', array('before' => 'auth', 'do' => function() {
     $albums = Album::with('user')->order_by('updated_at', 'desc')->paginate(5);
     return View::make('dashboard')
         ->with('albums', $albums);
 }));
 
-// Route::get('admin', array('before' => 'auth', 'do' => function() {
-//     $user = Auth::user();
-//     return View::make('new')->with('user', $user);
-// }));
+//poste un nouvel album
+Route::get('dashboard/new', array('before' => 'auth', 'do' => function() {
+    $user = Auth::user();
+    return View::make('dashboard.new')->with('user', $user);
+}));
 
-// poste un nouvel album
-// Route::get('dashboard/new', array('before' => 'auth', 'do' => function() {
-//     $user = Auth::user();
-//     return View::make('dashboard.new')->with('user', $user);
-// }));
+
 
 //
 //
@@ -108,14 +103,18 @@ Route::post('admin', array('before' => 'auth', 'do' => function() {
     $album->save();
 
     
-    // redirect to viewing all albums
-    return Redirect::to('/admin');
+    // redirect vers la main du dashboard
+    return Redirect::to('/dashboard');
 }));
+
+
 
 // Avoir le login
 Route::get('login', function() {
 	return View::make('login');
 });
+
+
 
 // Process the login form
 Route::post('login', function() {
@@ -126,7 +125,7 @@ Route::post('login', function() {
     );
     if ( Auth::attempt($userinfo) )
     {
-        return Redirect::to('admin');
+        return Redirect::to('dashboard');
     }
     else
     {

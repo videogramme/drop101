@@ -1,4 +1,4 @@
-@layout('templates.main')
+@layout('templates.dashboard')
 @section('content')
 <div class="span8">
     <h2>Ajouter un Album</h2>
@@ -9,15 +9,15 @@
         <p>{{ Form::label('name', 'Titre de l\'album') }}</p>
         {{ $errors->first('name', Alert::error(":message")) }}
         <p>{{ Form::text('name', Input::old('name')) }}</p>
-        <!-- Champ nom -->
+        <!-- Champ artiste -->
         <p>{{ Form::label('artist', 'Artist') }}</p>
         {{ $errors->first('artist', Alert::error(":message")) }}
         <p>{{ Form::text('artist', Input::old('artist')) }}</p>
-        <!-- Champ nom -->
+        <!-- Champ label -->
         <p>{{ Form::label('label', 'Label de l\'album') }}</p>
         {{ $errors->first('label', Alert::error(":message")) }}
         <p>{{ Form::text('label', Input::old('label')) }}</p>
-        <!-- Champ nom -->
+        <!-- Champ année-->
         <p>{{ Form::label('year', 'Année de l\'album') }}</p>
         {{ $errors->first('year', Alert::error(":message")) }}
         <p>{{ Form::text('year', Input::old('year')) }}</p>
@@ -25,7 +25,7 @@
         <p>{{ Form::label('description', 'Description de l\'album') }}</p>
         {{ $errors->first('description', Alert::error(":message")) }}
         <div>{{ Form::textarea('description', Input::old('description')) }}</div>
-        <!-- Champ chanson -->
+        <!-- Champ chansons -->
         <p>{{ Form::label('tracklist', 'Nom des chansons') }}</p>
         {{ $errors->first('tracklist', Alert::error(":message")) }}
         <p>{{ Form::textarea('tracklist', Input::old('tracklist')) }}</p>
@@ -37,7 +37,7 @@
         <p>{{ Form::label('quantity', 'Quantitée de l\'album') }}</p>
         {{ $errors->first('quantity', Alert::error(":message")) }}
         <p>{{ Form::textarea('quantity', Input::old('quantity')) }}</p>
-        <!-- Champ quantitées -->
+        <!-- Champ tag -->
         <p>{{ Form::label('album_tags', 'Tags de l\'album') }}</p>
         {{ $errors->first('album_tags', Alert::error(":message")) }}
         <p>{{ Form::textarea('album_tags', Input::old('album_tags')) }}</p>

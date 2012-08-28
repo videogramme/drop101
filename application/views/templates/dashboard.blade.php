@@ -32,14 +32,16 @@
               </a>
             @else
             Welcome, <strong>{{ HTML::link('admin', Auth::user()->username) }} </strong> |
-                {{ HTML::link('dashboard', 'dashboard') }} |
                 {{ HTML::link('logout', 'Logout') }}
             @endif
                 
           </div>
           <div class="nav-collapse">
             <ul class="nav">
-              <li><a href="{{ URL::base() }}">Home</a></li>
+              <li>{{ HTML::link('dashboard', 'Dashboard'); }}</li>
+              @if ( !Auth::guest() )
+              <li><a href="{{ URL::to('dashboard/new') }}">Create New</a></li>
+              @endif
             </ul>
           </div><!--/.nav-collapse -->
         </div>
