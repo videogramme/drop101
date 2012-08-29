@@ -113,7 +113,7 @@ Route::post('admin/new', array('before' => 'auth', 'do' => function() {
         'quantity'     => Input::get('quantity'),
         'album_tags'     => Input::get('album_tags'),
         'user_id'   => Input::get('user_id'),
-        'picture_id' =>
+  //      'picture_id' => 
     );
 
     $rules = array(

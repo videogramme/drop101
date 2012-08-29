@@ -13,7 +13,10 @@ class Create_Pictures {
 			$table->engine = 'InnoDB';
 
 			$table->increments('id');
-			$table->integer('album_id')->index();
+			$table->integer('album_id')->index()->nullable();
+			// if nullable
+			$table->integer('event_id')->index()->nullable();
+			$table->integer('news_id')->index()->nullable();
 			$table->string('location',300);
 			$table->string('thumbbig',300);
 			$table->string('thumbsmall', 300);

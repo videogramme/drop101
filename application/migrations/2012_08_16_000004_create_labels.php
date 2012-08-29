@@ -1,6 +1,6 @@
 <?php
 
-class Create_Tags {
+class Create_Labels {
 
 	/**
 	 * Make changes to the database.
@@ -9,9 +9,9 @@ class Create_Tags {
 	 */
 	public function up()
 	{
-		Schema::create('tags', function($table) {
+		Schema::create('labels', function($table) {
 		    $table->increments('id');
-		    $table->string('tag', 255);
+		    $table->string('label', 255);
 		    $table->text('description');
 		    $table->boolean('visible')->default(1);
 		    $table->text('comment')->nullable();
@@ -26,7 +26,7 @@ class Create_Tags {
 	 */
 	public function down()
 	{
-		Schema::drop('tags');
+		Schema::drop('labels');
 	}
 
 }
