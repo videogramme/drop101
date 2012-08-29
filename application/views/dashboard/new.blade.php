@@ -4,10 +4,14 @@
     <h2>Ajouter un Album</h2>
     <hr />
 
-    {{ Form::open('admin/new') }}
+    {{ Form::open('admin/new', array(' nctype=' => 'multipart/form-data')) }}
     	{{ Form::hidden('user_id', $user->id) }}
 
         <!-- Champ nom -->
+        <p>{{ Form::label('picture', 'Iameg de l\'album') }}</p>
+        {{ $errors->first('picture', Alert::error(":message")) }}
+        <p>{{ Form::file('picture', Input::old('picture')) }}</p>
+
         <p>{{ Form::label('name', 'Titre de l\'album') }}</p>
         {{ $errors->first('name', Alert::error(":message")) }}
         <p>{{ Form::text('name', Input::old('name')) }}</p>

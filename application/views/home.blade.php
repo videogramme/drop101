@@ -3,7 +3,8 @@
 		
     @foreach ($albums -> results as $album)
         <div class="span8">
-            <h1>{{ $album->name }}</h1>
+            <h1>{{ HTML::link('album/'.$album->name, $album->name );}}</h1>
+            <hr />
             <p>{{ $album->artist }}</p>
             <p>{{ $album->year }}</p>
             <p>{{ $album->label }}</p>
@@ -16,10 +17,10 @@
               	{{ Form::open('album/'.$album->id, 'DELETE')}}
 	        	<p>{{ Form::submit('Delete', array('class' => 'btn-small')) }}</p>
 	    		{{ Form::close() }}
-    		@endif -->
+    		@endif  -->
 
             @if ( Auth::guest() )
-                {{ Form::open('album/'.$album->id, 'Acheter')}}
+                {{ Form::open('cart/buy?id='.$album->id, 'buy')}}
                 <p>{{ Form::submit('Acheter', array('class' => 'btn-small')) }}</p>
                 {{ Form::close() }}
             @endif 

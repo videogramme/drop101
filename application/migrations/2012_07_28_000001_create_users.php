@@ -11,6 +11,8 @@ class Create_Users {
 	public function up()
 	{
 		Schema::create('users', function($table) {
+			$table->engine = 'InnoDB';
+			
 		    $table->increments('id');
 		    $table->string('username', 64);
 		    $table->string('password', 64);

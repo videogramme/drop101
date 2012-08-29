@@ -6,9 +6,12 @@
 
 class Album extends Eloquent {
 
-	public function user()
+	public function users()
 	{
-		return $this->belongs_to('User','user_id');
+		return $this->belongs_to('User');
 	}
-
+	public function pictures()
+	{
+		return $this->belongs_to('Picture');
+	}
 }

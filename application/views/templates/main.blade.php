@@ -41,6 +41,7 @@
             <ul class="nav">
               <li><a href="{{ URL::base() }}">A remplacer</a></li>
               <li><a href="{{ URL::to('pdv') }}">P.D.V.</a></li>
+              <li><a href="{{ URL::to('cart') }}">Panier d'achat</a></li>
             </ul>
           </div><!--/.nav-collapse -->
         </div>
@@ -57,7 +58,7 @@
 
     <div class="container">
         <footer>
-            <p>Drop ASBL &copy; 2012</p>
+            <p>Drop ASBL &copy; 2012 <a href="{{ URL::to('conditions') }}">conditions de vente</a></p>
         </footer>
     </div>
 </body>

@@ -1,6 +1,6 @@
 <?php
 
-class Home_Controller extends Base_Controller {
+class Cart_Controller extends Base_Controller {
 
 	/*
 	|--------------------------------------------------------------------------
@@ -29,10 +29,31 @@ class Home_Controller extends Base_Controller {
 	|		}
 	|
 	*/
+	//public $restful = true; 
 
-/*	public function action_index()
+	public function action_index()
 	{
-		return View::make('home.index');
-	}*/
+		return View::make('frontend.cart');
+	}
+
+	public function action_buy(){
+		
+		$id = Input::get('id');
+
+		$buyed_album = Album::where('id', '=', $id)->first();
+		$sc = Session::get('shoppingcart');
+
+		$sc->addAlbum($buyed_album);
+
+		return Redirect::to('cart');
+            
+	}
+
+	
+
+
+	public function action_empty(){
+		Session::flush();
+	}
 
 }

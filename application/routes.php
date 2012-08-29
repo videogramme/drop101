@@ -1,15 +1,23 @@
 <?php
 
-Route::controller(Controller::detect());
+
+// Route::get('album/(:num)', array('before' => 'auth', 'do' => function($id){
+    
+//     return View::make('album')
+//         ->with('albums', $albums);
+            
+// })) ;
+
+
 
 
 
 //  La page index est une liste des albums
-Route::get('/', function() {
-    $albums = Album::with('user')->order_by('updated_at', 'desc')->paginate(5);
-    return View::make('home')
-        ->with('albums', $albums);
-});
+// Route::get('/', function() {
+//     $albums = Album::with('user')->order_by('updated_at', 'desc')->paginate(5);
+//     return View::make('home')
+//         ->with('albums', $albums);
+// });
 
 
 
@@ -61,6 +69,8 @@ Route::get('dashboard/new', array('before' => 'auth', 'do' => function() {
 
 
 
+
+
 Route::delete('album/(:num)', array('before' => 'auth', 'do' => function($id){
     $delete_album = Album::with('user')->find($id);
     $delete_album -> delete();
@@ -73,8 +83,8 @@ Route::delete('album/(:num)', array('before' => 'auth', 'do' => function($id){
 // enlever un album
 Route::put('album/(:num)', array('before' => 'auth', 'do' => function($id){
     
-    $put_album = Album::with('user')
-        ->where('id', '=', 7)
+    $put_album = Album::with('id')
+        ->where('id', '=', $id)
         ->update(array('quantity' => -1 ));
     return Redirect::to('dashboard');
 
@@ -90,6 +100,8 @@ Route::put('album/(:num)', array('before' => 'auth', 'do' => function($id){
 // Sav dans db l'album
 Route::post('admin/new', array('before' => 'auth', 'do' => function() {
 
+
+
     $new_album = array(
         'name'    => Input::get('name'),
         'artist'    => Input::get('artist'),
@@ -100,7 +112,8 @@ Route::post('admin/new', array('before' => 'auth', 'do' => function() {
         'price'    => Input::get('price'),
         'quantity'     => Input::get('quantity'),
         'album_tags'     => Input::get('album_tags'),
-        'user_id'   => Input::get('user_id')
+        'user_id'   => Input::get('user_id'),
+        'picture_id' =>
     );
 
     $rules = array(
@@ -190,8 +203,10 @@ Route::post('liveSearch', function() {
 
 
 
-
-
+// conditions géénérale de vente 
+Route::get('conditions', function() {
+    return View::make('frontend.conditions');
+});
 
 
 
@@ -267,7 +282,7 @@ Route::group(array('before' => 'auth'), function()
 */
 
 
-
+Route::controller(Controller::detect());
 
 
 /*

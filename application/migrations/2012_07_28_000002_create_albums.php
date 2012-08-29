@@ -11,19 +11,22 @@ class Create_Albums {
 	public function up()
 	{
 		Schema::create('albums', function($table) {
+			$table->engine = 'InnoDB';
+			
 		    $table->increments('id');
 		    $table->string('name', 255);
 		    $table->string('artist', 255);
 		    $table->string('label', 255);
-		    $table->integer('year', 4);
+		    $table->integer('year');
 		    $table->text('description');
 		    $table->text('tracklist');
-		    $table->integer('price', 5);
-		    $table->integer('quantity', 4);
-		    $table->text('album_tags');
+		    $table->integer('price');
+		    $table->integer('quantity');
+		    // $table->text('album_tags');
 		    $table->integer('user_id')->index();
+		    // $table->integer('picture_id')->index();
 		    $table->boolean('visible')->default(1);
-		    $table->text('comment');
+		    $table->text('comment')->nullable();
 		    $table->timestamps();
 		});
 	}

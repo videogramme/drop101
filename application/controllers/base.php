@@ -11,6 +11,10 @@ class Base_Controller extends Controller {
 	 */
 
 	public function __construct(){
+		if(!Session::has('shoppingcart')){
+			 Session::put('shoppingcart', new shoppingcart());
+		}
+		   
 		
 	}
 

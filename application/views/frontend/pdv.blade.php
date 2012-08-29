@@ -1,7 +1,9 @@
 @layout('templates.main')
 @section('content')
 
-<div class="span8">
+<div class="span12">
+
+    <div class="span4 offset8">
     <h2>Envoyer un email</h2>
     <hr />
     
@@ -19,11 +21,12 @@
         <!-- Champ label -->
         <p>{{ Form::label('body', 'Votre message') }}</p>
         {{ $errors->first('body', Alert::error(":message")) }}
-        <p>{{ Form::text('body', Input::old('body')) }}</p>
+        <p>{{ Form::textarea('body', Input::old('body')) }}</p>
 
         <!-- submit button -->
         <p>{{ Form::submit('Envoyez') }}</p>
     {{ Form::close() }}
+    </div>
 
 </div>
 

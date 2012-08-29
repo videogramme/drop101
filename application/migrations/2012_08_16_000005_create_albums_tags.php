@@ -10,6 +10,8 @@ class Create_Albums_Tags {
 	public function up()
 	{
 		Schema::create('albums_tags', function($table){
+			$table->engine = 'InnoDB';
+			
 			$table->increments('id');
 			$table->integer('tag_id')->index();
 			$table->integer('album_id')->index();

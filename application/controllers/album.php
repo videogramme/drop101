@@ -1,6 +1,6 @@
 <?php
 
-class Home_Controller extends Base_Controller {
+class Album_Controller extends Base_Controller {
 
 	/*
 	|--------------------------------------------------------------------------
@@ -29,12 +29,17 @@ class Home_Controller extends Base_Controller {
 	|		}
 	|
 	*/
+	public $restful = true; 
 
-	public function action_index()
+	public function get_index()
 	{
-		$albums = Album::with('user')->order_by('updated_at', 'desc')->paginate(9);
-			return View::make('home')
-            ->with('albums', $albums);
+		return View::make('frontend.album');
+	}
+
+	public function post_achat(){
+		
+		// Session::put('name', 'Taylor');
+
 	}
 
 }

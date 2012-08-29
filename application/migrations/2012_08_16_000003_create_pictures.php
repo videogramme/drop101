@@ -10,13 +10,15 @@ class Create_Pictures {
 	public function up()
 	{
 		Schema::create('pictures',function($table){
+			$table->engine = 'InnoDB';
+
 			$table->increments('id');
 			$table->integer('album_id')->index();
 			$table->string('location',300);
-			$table->string('thumbfeat',300);
-			$table->string('thumbcat', 300);
+			$table->string('thumbbig',300);
+			$table->string('thumbsmall', 300);
 			$table->boolean('visible')->default(1);
-			$table->text('comment');
+			$table->text('comment')->nullable();
 			$table->timestamps();
 			// $table->foreign('addon_id')->references('id')->on('addons')->on_delete('no action');
 			// $table->foreign('addon_id')->references('id')->on('addons')->on_update('cascade');
