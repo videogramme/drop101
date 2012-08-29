@@ -53,7 +53,7 @@ class Pdv_Controller extends Base_Controller {
         'body'    => 'required|min:10'
     	);
     
-	    $validation = Validator::make($new_album, $rules);
+	    $validation = Validator::make($new_email, $rules);
 	    if ( $validation -> fails() )
 	    {
 	    	  return Redirect::to('pdv')
@@ -66,8 +66,8 @@ class Pdv_Controller extends Base_Controller {
 		$message = Message::to(array('xavierborsu@gmail.com', 'videogramme@gmail.com' => 'videoioio'))
     	// ->cc('more@addresses.com')
     	// ->bcc(array('evenmore@address.com' => 'Another name', 'onelast@address.com'))
-    	->from($from)
-    	->subject($subject)
+    	->from($new_email['from'])
+    	->subject($new_email['subject'])
     	->body('<b>Well hello</b> <i>Someone</i>, how is it going?')
     	->html(true);
     	// ->send();

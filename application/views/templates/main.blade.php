@@ -52,12 +52,13 @@
             @yield('content')
           </div>
           @yield('pagination')
+          @yield('shoppingcart')
     </div><!--/container-->
 
     <div class="container">
         <footer>
             <p>Drop ASBL &copy; 2012</p>
         </footer>
-      </div>
+    </div>
 </body>
 </html>

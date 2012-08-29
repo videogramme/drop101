@@ -15,6 +15,7 @@
             <th>artist</th>
             <th>price</th>
             <th>quantity</th>
+            <th></th>
         </tr>
         
         @foreach ($albums -> results as $album)
