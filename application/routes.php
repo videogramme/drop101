@@ -2,6 +2,8 @@
 
 Route::controller(Controller::detect());
 
+
+
 //  La page index est une liste des albums
 Route::get('/', function() {
     $albums = Album::with('user')->order_by('updated_at', 'desc')->paginate(5);
@@ -70,9 +72,12 @@ Route::delete('album/(:num)', array('before' => 'auth', 'do' => function($id){
 //??????????
 // enlever un album
 Route::put('album/(:num)', array('before' => 'auth', 'do' => function($id){
-    // $put_album = Album::with('user')->find($id);
+    
+    $put_album = Album::with('user')
+        ->where('id', '=', 7)
+        ->update(array('quantity' => -1 ));
+    return Redirect::to('dashboard');
 
-    echo ('io');
 
     // $put_album = Album::with('albums')->find($id);
     // var_dump($put_album);
@@ -125,7 +130,10 @@ Route::post('admin/new', array('before' => 'auth', 'do' => function() {
 }));
 
 
-
+//fait chier celui du haut emeche le controleur
+// Route::get('pdv', function() {
+//     return View::make('frontend.pdv');
+// });
 
 
 

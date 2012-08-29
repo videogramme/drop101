@@ -11,7 +11,7 @@ class Base_Controller extends Controller {
 	 */
 
 	public function __construct(){
-		echo('ioioioio');
+		
 	}
 
 	public function __call($method, $parameters)

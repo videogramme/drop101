@@ -38,4 +38,5 @@ return array(
 	'bootstrapper' => array('auto' => true),
 	'docs' => array('handles' => 'docs'),
 	'jqueryfileupload'=>array('auto'=>true),
+	'messages'=>array('auto'=>true),
 );

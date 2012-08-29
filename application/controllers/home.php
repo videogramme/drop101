@@ -30,11 +30,11 @@ class Home_Controller extends Base_Controller {
 	|
 	*/
 
-	public function action_index()
-	{
-		$albums = Album::with('user')->order_by('updated_at', 'desc')->paginate(5);
-			return View::make('home')
-            ->with('albums', $albums);
-	}
+	// public function action_index()
+	// {
+	// 	$albums = Album::with('user')->order_by('updated_at', 'desc')->paginate(5);
+	// 		return View::make('home')
+ //            ->with('albums', $albums);
+	// }
 
 }

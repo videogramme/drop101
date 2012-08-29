@@ -39,7 +39,8 @@
           </div>
           <div class="nav-collapse">
             <ul class="nav">
-              <li><a href="{{ URL::base() }}">Home</a></li>
+              <li><a href="{{ URL::base() }}">A remplacer</a></li>
+              <li><a href="{{ URL::to('pdv') }}">P.D.V.</a></li>
             </ul>
           </div><!--/.nav-collapse -->
         </div>
