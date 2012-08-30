@@ -64,10 +64,31 @@ Route::get('dashboard', array('before' => 'auth', 'do' => function() {
         ->with('albums', $albums);
 }));
 // La route vers la page de création d'un nouvelle album
+// Route::get('dashboard/new', array('before' => 'auth', 'do' => function() {
+//     $user = Auth::user();
+//     $label = Label::order_by('id')->get();
+//     $artist = Artist::order_by('id')->get();
+//     $tag = Tag::order_by('id')->get();
+//     return View::make('dashboard.new')
+//         ->with('user', $user)
+//         ->with('label', $label)
+//         ->with('artist', $artist)
+//         ->with('tag', $tag)
+//         ;
+// }));
 Route::get('dashboard/new', array('before' => 'auth', 'do' => function() {
     $user = Auth::user();
-    return View::make('dashboard.new')->with('user', $user);
+ 
+    return View::make('dashboard.new')
+        ->with('user', $user)
+        // ->with('label', Label::find($id))
+        // ->with('artist', Artist::find($id))
+        // ->with('tag', Tag::order_by('id')->get())
+        ;
 }));
+
+
+
 // Sav dans db l'album
 Route::post('dashboard/new', array('before' => 'auth', 'do' => function() {
 

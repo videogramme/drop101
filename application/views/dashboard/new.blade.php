@@ -1,16 +1,17 @@
 @layout('templates.dashboard')
 @section('content')
-<div class="span8">
+<div class="span12">
     <h2>Ajouter une news</h2>
     <hr />  <!--  , array('nctype=' => 'multipart/form-data') -->
 
     {{ Form::open('dashboard/new') }}
     	{{ Form::hidden('user_id', $user->id) }}
+        {{-- Form::hidden('label_id', $label->id) --}}
+        {{-- Form::hidden('artist_id', $artist->id) --}}
+        {{-- Form::hidden('tag_id', $tag->id) --}}
 
         <!-- Champ Upload -->
-        {{Form::label('picture', 'Picture (.jpg format only)', array('class' => 'label'));}}<span>{{$errors->first('picture')}}</span>
-        {{Form::hidden('MAX_FILE_SIZE', 500000);}}
-        {{Form::file('picture', array('id'=>'picture'));}}
+
         <!-- Champ nom -->
         <p>{{ Form::label('name', 'Titre de l\'album') }}</p>
         {{ $errors->first('name', Alert::error(":message")) }}

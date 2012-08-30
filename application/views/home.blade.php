@@ -6,7 +6,7 @@
             <h1>{{ HTML::link('album/'.$album->id, $album->name );}}</h1>
             <hr />
             <?php
-            var_dump($album->artist);
+            //var_dump($album->artist);
             ?>
             <p>{{ $album->artist }}</p>
 
