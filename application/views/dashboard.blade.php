@@ -27,7 +27,7 @@
         <tr>
             <td><input type="checkbox"/></td>
             <td>{{ $album->id}}</td>
-            <td>{{ HTML::link('album/'.$album->id, $album->name );}}</td>
+            <td>{{ HTML::link('album/'.$album->id, $album->id );}}</td>
             <td>{{ $album->artist}}</td>
             <td>{{ $album->price}}</td>
             <td>{{ $album->quantity}}</td>

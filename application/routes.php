@@ -18,7 +18,11 @@ Route::get('/', function() {
     return View::make('home')
         ->with('albums', $albums);
 });
-
+Route::get('album/(:any)', function() {
+    $albums = Album::with('users')->order_by('updated_at', 'desc')->paginate(5);
+    return View::make('frontend.albumsingle')
+        ->with('albums', $albums);
+});
 
 
 // Avoir le login
@@ -272,12 +276,22 @@ Route::group(array('before' => 'auth'), function()
 Route::get('blog', array('as'=>'blog', 'uses'=>'blog@index'));
 Route::get('blog/(:any)', array('as'=>'blog', 'uses'=>'blog@view'));
 
-Route::get('dashboard/blog/new', array('as'=>'new_blog', 'uses'=>'blog@new'));
+// Route::get('dashboard/blog/new', array('as'=>'new_blog', 'uses'=>'blog@new'));
 // Route::post('dashboard/blog/new/post', array('uses'=>'blog@create'));
 
-Route::post('dashboard/blog/new', array('before' => 'auth', 'do' => function() {
+
+
+
+
+
+// La route vers la page de création d'un nouvelle album
+Route::get('dashboard/blog/new', array('before' => 'auth', 'do' => function() {
     $user = Auth::user();
-    return View::make('dashboard/blog/new')->with('user', $user);
+    return View::make('dashboard.blog.new')->with('user', $user);
+}));
+
+
+Route::post('dashboard/blog/new', array('before' => 'auth', 'do' => function() {
 
     $new_blog = array(
         'title'    => Input::get('title'),
@@ -286,15 +300,15 @@ Route::post('dashboard/blog/new', array('before' => 'auth', 'do' => function() {
     );
 
     $rules = array(
-        'title'     => 'required|min:5|max:255',
+        'title'     => 'required|min:5|max:100',
         'description'      => 'required|min:10'
     );
     
-    $validation = Validator::make($new_ablog, $rules);
+    $validation = Validator::make($new_blog, $rules);
     if ( $validation -> fails() )
     {
         
-        return Redirect::to('dashboard')
+        return Redirect::to('dashboard/blog/new')
                 ->with('user', Auth::user())
                 ->with_errors($validation)
                 ->with_input();
