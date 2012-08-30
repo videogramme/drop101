@@ -2,12 +2,14 @@
 @section('content')
 
 <?php
-$albumArray = Session::get('shoppingcart');
+$total = 0;
+$albumArray = Session::get('Shoppingcart');
+
 $albums = $albumArray->getAlbums();
 echo (sizeof($albums));
 ?>
 
-<h1>shopping cart</h1>
+<h1>Panier d'achat</h1>
 
 <table class="table">
 
@@ -23,15 +25,26 @@ echo (sizeof($albums));
 	        <td>{{ $album->name }}</td>
 	        <td>{{ $album->artist }}</td>
 	        <td>1</td>        
-	        <td>{{ $album->price }}</td>
+	        <td>{{ $album->price }} €</td>
 		</tr>
     @endforeach
-
-	<tr>
+    <tr>
 		<td></td>
         <td></td>
         <td></td>
-        <td>Total</td>
+        <td></td>
+	</tr>
+	<tr>
+		<td></td>
+        <td>Total : </td>
+        <td>@foreach ($albums as $album)
+        		<?php
+        		$total += $album->price;
+        		?>
+        	@endforeach
+        	{{ $total }} €
+        </td>
+        <td></td>
 	</tr>
 	<tr>
 		<td></td>
@@ -42,8 +55,19 @@ echo (sizeof($albums));
 	<tr>
 		<td></td>
         <td></td>
+        <td><button class="btn-large btn" type="submit">Acheter</button></td>
         <td></td>
-        <td><button class="btn-large btn" type="submit">Buy</button></td>
 	</tr>
 </table>
+<table >
+	<tr>
+		<td></td>
+        <td></td>
+        <td></td>
+        <td><button class="btn-large btn" type="submit">Effacer</button></td>
+	</tr>
+</table>
+
+
+
 @endsection

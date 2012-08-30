@@ -23,7 +23,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </a>
-          <a class="brand" href="{{ URL::base() }}">Drop ASBL</a>
+          <a class="brand" href="{{ URL::base() }}"><img src="img/logo.jpg" width="30px"></a>
           <div class="btn-group pull-right">
                 
              @if ( Auth::guest() )
@@ -39,8 +39,8 @@
           </div>
           <div class="nav-collapse">
             <ul class="nav">
-              <li><a href="{{ URL::base() }}">A remplacer</a></li>
               <li><a href="{{ URL::to('pdv') }}">P.D.V.</a></li>
+              <li><a href="{{ URL::to('blog') }}">News</a></li>
               <li><a href="{{ URL::to('cart') }}">Panier d'achat</a></li>
             </ul>
           </div><!--/.nav-collapse -->
@@ -58,6 +58,7 @@
 
     <div class="container">
         <footer>
+            <hr />
             <p>Drop ASBL &copy; 2012 <a href="{{ URL::to('conditions') }}">conditions de vente</a></p>
         </footer>
     </div>

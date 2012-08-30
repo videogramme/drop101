@@ -1,8 +1,8 @@
 <?php
 
-class Albums_tag extends Eloquent{
+class Albumtag extends Eloquent{
 	
-	public static $table = 'addon_tag';
+	// public static $table = 'albumtag';
 
 	public function albums(){
 		return $this->has_many('Album');

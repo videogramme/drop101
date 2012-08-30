@@ -1,6 +1,6 @@
 <?php
 
-class shoppingcart{
+class Shoppingcart{
 
 	private $albums = array();
 

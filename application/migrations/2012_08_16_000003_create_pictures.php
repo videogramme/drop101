@@ -16,7 +16,7 @@ class Create_Pictures {
 			$table->integer('album_id')->index()->nullable();
 			// if nullable
 			$table->integer('event_id')->index()->nullable();
-			$table->integer('news_id')->index()->nullable();
+			$table->integer('blog_id')->index()->nullable();
 			$table->string('location',300);
 			$table->string('thumbbig',300);
 			$table->string('thumbsmall', 300);

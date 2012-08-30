@@ -1,6 +1,6 @@
 <?php
 
-class Create_News {
+class Create_Maps {
 
 	/**
 	 * Make changes to the database.
@@ -10,13 +10,15 @@ class Create_News {
 	 */
 	public function up()
 	{
-		Schema::create('news', function($table) {
+		Schema::create('maps', function($table) {
 			$table->engine = 'InnoDB';
 			
 		    $table->increments('id');
 		    $table->string('title', 255);
 		    $table->text('description');
-		    $table->integer('user_id')->index();
+		    $table->float('lat');
+		    $table->float('lng');
+		    $table->integer('zoom');
 		    $table->boolean('visible')->default(1);
 		    $table->text('comment')->nullable();
 		    $table->timestamps();
@@ -30,7 +32,7 @@ class Create_News {
 	 */
 	public function down()
 	{
-		Schema::drop('news');
+		Schema::drop('maps');
 	}
 
 }

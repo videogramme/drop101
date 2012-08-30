@@ -40,7 +40,8 @@
             <ul class="nav">
               <li>{{ HTML::link('dashboard', 'Dashboard'); }}</li>
               @if ( !Auth::guest() )
-                <li><a href="{{ URL::to('dashboard/new') }}">Create New</a></li>
+                <li><a href="{{ URL::to('dashboard/new') }}">Create New Album</a></li>
+                <li><a href="{{ URL::to('dashboard/blog/new') }}">Create New News</a></li>
                 <li><a href="{{ URL::to('dashboard/uploader') }}">Upload new</a></li>
               @endif
             </ul>

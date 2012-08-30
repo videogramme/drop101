@@ -14,4 +14,25 @@ class Album extends Eloquent {
 	{
 		return $this->belongs_to('Picture');
 	}
+	public function news()
+	{
+		return $this->belongs_to('Blogs');
+	}
+	public function events()
+	{
+		return $this->belongs_to('Events');
+	}
+	public function tags()
+	{
+		return $this->has_many_and_belongs_to('Tag', 'albums_tags');
+	}
+	public function labels()
+	{
+	return $this->has_many_and_belongs_to('Label', 'album_label');
+	}
+	public function artists()
+	{
+		return $this->has_many_and_belongs_to('Artist', 'album_artist');
+	}
+	
 }

@@ -41,9 +41,12 @@ class Cart_Controller extends Base_Controller {
 		$id = Input::get('id');
 
 		$buyed_album = Album::where('id', '=', $id)->first();
-		$sc = Session::get('shoppingcart');
-
+		$sc = Session::get('Shoppingcart');
 		$sc->addAlbum($buyed_album);
+
+
+		//Session::put('Shoppingcart', $sc);
+		
 
 		return Redirect::to('cart');
             

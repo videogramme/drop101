@@ -13,8 +13,9 @@ class Create_Albums_Tags {
 			$table->engine = 'InnoDB';
 			
 			$table->increments('id');
-			$table->integer('tag_id')->index();
 			$table->integer('album_id')->index();
+			$table->integer('tag_id')->index();
+			$table->timestamps();
 		});
 	}
 

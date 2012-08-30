@@ -13,8 +13,9 @@ class Create_Albums_Artists {
 			$table->engine = 'InnoDB';
 			
 			$table->increments('id');
-			$table->integer('artist_id')->index();
 			$table->integer('album_id')->index();
+			$table->integer('artist_id')->index();
+			$table->timestamps();
 		});
 	}
 

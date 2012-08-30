@@ -39,4 +39,5 @@ return array(
 	'docs' => array('handles' => 'docs'),
 	'jqueryfileupload'=>array('auto'=>true),
 	'messages'=>array('auto'=>true),
+	'resizer' => array( 'auto' => true ),
 );

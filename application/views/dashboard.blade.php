@@ -6,6 +6,11 @@
         {{ Alert::success("Success! Album deleted!") }}
         </div>
 @endif
+@if (Session::has('message'))
+        <div class="span8">
+        {{ Session::get('message') }}
+        </div>
+@endif
 
     <table class="table">
         <tr>

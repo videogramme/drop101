@@ -1,6 +1,6 @@
 <?php
 
-class Create_Albums {
+class Create_Blogs {
 
 	/**
 	 * Make changes to the database.
@@ -10,21 +10,13 @@ class Create_Albums {
 	 */
 	public function up()
 	{
-		Schema::create('albums', function($table) {
+		Schema::create('blogs', function($table) {
 			$table->engine = 'InnoDB';
 			
 		    $table->increments('id');
-		    $table->string('name', 255);
-		    // $table->string('artist', 255);
-		    // $table->string('label', 255);
-		    $table->integer('year');
+		    $table->string('title', 255);
 		    $table->text('description');
-		    $table->text('tracklist');
-		    $table->integer('price');
-		    $table->integer('quantity');
-		    // $table->text('album_tags');
 		    $table->integer('user_id')->index();
-		    // $table->integer('picture_id')->index();
 		    $table->boolean('visible')->default(1);
 		    $table->text('comment')->nullable();
 		    $table->timestamps();
@@ -38,7 +30,7 @@ class Create_Albums {
 	 */
 	public function down()
 	{
-		Schema::drop('albums');
+		Schema::drop('blogs');
 	}
 
 }

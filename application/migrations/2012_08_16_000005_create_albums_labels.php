@@ -13,8 +13,9 @@ class Create_Albums_Labels {
 			$table->engine = 'InnoDB';
 			
 			$table->increments('id');
-			$table->integer('label_id')->index();
 			$table->integer('album_id')->index();
+			$table->integer('label_id')->index();
+			$table->timestamps();
 		});
 	}
 

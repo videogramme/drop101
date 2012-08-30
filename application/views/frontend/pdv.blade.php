@@ -2,6 +2,15 @@
 @section('content')
 
 <div class="span12">
+    <div class="span7">
+
+        <script type="text/javascript"src="http://www.google.com/jsapi?key=AIzaSyDZcl2Asvu2FFaG2px-yMOCGmTKNQrf3SA">
+        <script type="text/javascript"charset="utf-8">google.load("maps","2.x"); google.load("jquery","1.3.1");</script>
+
+        <!-- <div id="map"></div> -->
+        <style media="screen"type="text/css">#map { width:300px; height:100px; }</style>    
+
+    </div>
 
     <div class="span4 offset8">
     <h2>Envoyer un email</h2>
@@ -29,7 +38,11 @@
     </div>
 
 </div>
-
-
-
+<script type="text/javascript">
+    $(document).ready(function(){ 
+      var map = new GMap2(document.getElementById(‘map’)); 
+      var burnsvilleMN = new GLatLng(44.797916,-93.278046); 
+      map.setCenter(burnsvilleMN, 8); 
+    });
+</script>
 @endsection

@@ -4,6 +4,26 @@
 		"selected_items":
 		[
 			[
+				"File",
+				"File	Laravel: File::get()"
+			],
+			[
+				"php",
+				"php"
+			],
+			[
+				"al",
+				"albumArray"
+			],
+			[
+				"HTM",
+				"HTML	Laravel: HTML::link()"
+			],
+			[
+				"pu",
+				"put_album"
+			],
+			[
 				"in",
 				"input	Tag"
 			],
@@ -31,6 +51,26 @@
 		"selected_items":
 		[
 			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"ins",
+				"Package Control: Install Package"
+			],
+			[
+				"instl",
+				"Package Control: Install Package"
+			],
+			[
+				"in",
+				"Package Control: Install Package"
+			],
+			[
+				"i",
+				"Package Control: Install Package"
+			],
+			[
 				"consol",
 				"Set Syntax: R Console"
 			],
@@ -39,15 +79,7 @@
 				"Set Syntax: R Console"
 			],
 			[
-				"install",
-				"Package Control: Install Package"
-			],
-			[
 				"instal",
-				"Package Control: Install Package"
-			],
-			[
-				"ins",
 				"Package Control: Install Package"
 			],
 			[
@@ -59,7 +91,7 @@
 				"HTML: Encode Special Characters"
 			]
 		],
-		"width": 392.0
+		"width": 575.0
 	},
 	"console":
 	{
@@ -76,30 +108,79 @@
 	},
 	"file_history":
 	[
-		"/Applications/MAMP/htdocs/drop101/application/views/templates/dashboard.blade.php",
+		"/Applications/MAMP/htdocs/drop101/application/views/home.blade.php",
+		"/Applications/MAMP/htdocs/drop101/application/models/Albumlabel.php",
+		"/Applications/MAMP/htdocs/drop101/application/models/Label.php",
+		"/Applications/MAMP/htdocs/drop101/application/models/Album.php",
+		"/Applications/MAMP/htdocs/drop101/application/controllers/home.php",
+		"/Applications/MAMP/htdocs/drop101/application/controllers/blog.php",
+		"/Applications/MAMP/htdocs/drop101/application/views/dashboard/new.blade.php",
 		"/Applications/MAMP/htdocs/drop101/application/routes.php",
-		"/Applications/MAMP/htdocs/drop101/bundles/jqueryfileupload/README.md",
+		"/Applications/MAMP/htdocs/drop101/application/controllers/cart.php",
+		"/Applications/MAMP/htdocs/drop101/application/controllers/base.php",
+		"/Applications/MAMP/htdocs/drop101/application/views/frontend/cart.blade.php",
+		"/Applications/MAMP/htdocs/drop101/application/views/login.blade.php",
+		"/Applications/MAMP/htdocs/drop101/application/models/Tag.php",
+		"/Applications/MAMP/htdocs/drop101/application/models/Artist.php",
+		"/Applications/MAMP/htdocs/drop101/application/views/dashboard.blade.php",
 		"/Applications/MAMP/htdocs/drop101/application/bundles.php",
+		"/Applications/MAMP/htdocs/drop101/application/migrations/2012_07_28_000002_create_maps.php",
+		"/Applications/MAMP/htdocs/drop101/application/models/Map.php",
+		"/Applications/MAMP/htdocs/drop101/application/models/User.php",
+		"/Applications/MAMP/htdocs/drop101/application/models/Picture.php",
+		"/Applications/MAMP/htdocs/drop101/application/models/Blog.php",
+		"/Applications/MAMP/htdocs/drop101/application/models/Event.php",
+		"/Applications/MAMP/htdocs/drop101/application/models/Albumartist.php",
+		"/Applications/MAMP/htdocs/drop101/application/models/Albumtag - copie 2.php",
+		"/Applications/MAMP/htdocs/drop101/application/models/Albumtag.php",
+		"/Applications/MAMP/htdocs/drop101/application/models/Shoppingcart.php",
+		"/Applications/MAMP/htdocs/drop101/application/migrations/2012_07_28_000002_create_albums.php",
+		"/Applications/MAMP/htdocs/drop101/application/migrations/2012_08_16_000003_create_pictures.php",
+		"/Applications/MAMP/htdocs/drop101/application/migrations/2012_07_28_000002_create_blogs.php",
+		"/Applications/MAMP/htdocs/drop101/application/migrations/2012_08_16_000005_create_albumartists.php",
+		"/Applications/MAMP/htdocs/drop101/application/migrations/2012_08_16_000005_create_albumlabels.php",
+		"/Applications/MAMP/htdocs/drop101/application/migrations/2012_08_16_000005_create_albumtags.php",
+		"/Applications/MAMP/htdocs/drop101/application/migrations/2012_08_16_000005_create_AlbumArtists.php",
+		"/Applications/MAMP/htdocs/drop101/application/migrations/2012_08_16_000005_create_AlbumLabels.php",
+		"/Applications/MAMP/htdocs/drop101/test.php",
+		"/Applications/MAMP/htdocs/drop101/application/migrations/2012_08_16_000005_create_albums_labels.php",
+		"/Applications/MAMP/htdocs/drop101/application/migrations/2012_08_16_000005_create_albums_tags.php",
+		"/Applications/MAMP/htdocs/drop101/application/migrations/2012_08_16_000005_create_albums_artists.php",
+		"/Applications/MAMP/htdocs/drop101/application/migrations/2012_08_16_000004_create_labels.php",
+		"/Applications/MAMP/htdocs/drop101/application/migrations/2012_08_16_000004_create_artists.php",
+		"/Applications/MAMP/htdocs/drop101/application/migrations/2012_07_28_000002_create_events.php",
+		"/Applications/MAMP/htdocs/drop101/application/migrations/2012_07_28_000002_create_news.php",
+		"/Applications/MAMP/htdocs/drop101/application/migrations/2012_08_16_000004_create_tags.php",
+		"/Applications/MAMP/htdocs/drop101/application/migrations/2012_08_16_000004_create_artistes.php",
+		"/Applications/MAMP/htdocs/drop101/application/migrations/2012_07_28_000001_create_users.php",
+		"/Applications/MAMP/htdocs/drop101/application/views/templates/dashboard_uploader.blade.php",
+		"/Applications/MAMP/htdocs/drop101/application/models/shoppingcart.php",
+		"/Applications/MAMP/htdocs/drop101/application/models/untitled",
+		"/Applications/MAMP/htdocs/drop101/application/models/Albums_tag.php",
+		"/Applications/MAMP/htdocs/drop101/application/controllers/admin.php",
+		"/Applications/MAMP/htdocs/drop101/application/views/templates/main.blade.php",
+		"/Applications/MAMP/htdocs/drop101/application/views/dashboard/uploader.blade.php",
+		"/Applications/MAMP/htdocs/drop101/application/views/frontend/conditions.blade.php",
+		"/Applications/MAMP/htdocs/drop101/application/config/application.php",
+		"/Applications/MAMP/htdocs/drop101/application/views/frontend/album.blade.php",
+		"/Applications/MAMP/htdocs/drop101/application/controllers/album.php",
+		"/Applications/MAMP/htdocs/drop101/application/views/frontend/pdv.blade.php",
+		"/Applications/MAMP/htdocs/drop101/application/controllers/pdv.php",
+		"/Users/iop/Library/Application Support/Sublime Text 2/Packages/Default/Preferences.sublime-settings",
+		"/Users/iop/Library/Application Support/Sublime Text 2/Packages/User/Preferences.sublime-settings",
+		"/Applications/MAMP/htdocs/drop101/application/views/templates/dashboard.blade.php",
+		"/Applications/MAMP/htdocs/drop101/bundles/jqueryfileupload/README.md",
 		"/Applications/MAMP/htdocs/drop101/bundles/jqueryfileupload/config/fileupload.php",
 		"/Applications/MAMP/htdocs/drop101/application/start.php",
-		"/Applications/MAMP/htdocs/drop101/application/views/dashboard/new.blade.php",
 		"/Applications/MAMP/htdocs/drop101/application/config/session.php",
-		"/Applications/MAMP/htdocs/drop101/application/views/dashboard.blade.php",
-		"/Applications/MAMP/htdocs/drop101/application/views/templates/main.blade.php",
 		"/Applications/MAMP/htdocs/drop101/application/views/dashboard/new.php",
 		"/Applications/MAMP/htdocs/drop101_sav02/application/views/dashboard.blade.php",
-		"/Applications/MAMP/htdocs/drop101/application/views/login.blade.php",
 		"/Applications/MAMP/htdocs/drop101/application/controllers/login.php",
 		"/Applications/MAMP/htdocs/drop101/application/views/home/index.blade.php",
-		"/Applications/MAMP/htdocs/drop101/application/views/home.blade.php",
 		"/Applications/MAMP/htdocs/drop101/application/views/new.blade.php",
-		"/Applications/MAMP/htdocs/drop101/application/controllers/home.php",
-		"/Applications/MAMP/htdocs/drop101/application/controllers/base.php",
-		"/Applications/MAMP/htdocs/drop101/application/config/application.php",
 		"/Applications/MAMP/htdocs/drop101/bundles/orchestra/docs/contents.md",
 		"/Applications/MAMP/htdocs/drop101/bundles/orchestra/docs/README.md",
 		"/Applications/MAMP/htdocs/drop101/artisan",
-		"/Applications/MAMP/htdocs/drop101/application/migrations/2012_07_28_000002_create_albums.php",
 		"/Applications/MAMP/htdocs/drop101_sav01/artisan",
 		"/Applications/MAMP/bin/php/php5.4.4/bin/pear",
 		"/Applications/MAMP/htdocs/drop101/index1.php",
@@ -138,6 +219,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"todo",
 			"d",
 			"p",
 			"album_author",
@@ -149,6 +231,7 @@
 		"regex": false,
 		"replace_history":
 		[
+			"blog",
 			"h",
 			"album"
 		],
@@ -222,6 +305,6 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 228.0,
+	"side_bar_width": 244.0,
 	"status_bar_visible": true
 }

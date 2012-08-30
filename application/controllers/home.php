@@ -32,9 +32,10 @@ class Home_Controller extends Base_Controller {
 
 	public function action_index()
 	{
-		$albums = Album::with('user')->order_by('updated_at', 'desc')->paginate(9);
+		$albums = Album::with('users')->order_by('updated_at', 'desc')->paginate(9);
 			return View::make('home')
             ->with('albums', $albums);
+            // $roles = User::find(1)->roles;
 	}
 
 }

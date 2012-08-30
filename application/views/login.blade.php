@@ -6,12 +6,15 @@
         @if (Session::has('login_errors'))
             {{ Alert::error("Username or password incorrect.") }}
         @endif
-        <!-- username field -->
-        <p>{{ Form::label('username', 'Username') }}</p>
+        <!-- nom d'ulitisateur' -->
+        <p>{{ Form::label('username', 'Nom d\'utilisateur') }}</p>
         <p>{{ Form::text('username') }}</p>
-        <!-- password field -->
-        <p>{{ Form::label('password', 'Password') }}</p>
+        <!-- password  -->
+        <p>{{ Form::label('password', 'Mot de passe') }}</p>
         <p>{{ Form::password('password') }}</p>
+        <!-- password remeber me-->
+        <p>{{ Form::label('remember', 'Se souvenir de moi') }}</p>
+        <p>{{ Form::checkbox('remember') }}</p>
         <!-- submit button -->
         <p>{{ Form::submit('Login', array('class' => 'btn-large')) }}</p>
     {{ Form::close() }}

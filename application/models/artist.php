@@ -1,6 +1,6 @@
 <?php
 
-class Tag extends Eloquent{
+class Artist extends Eloquent{
 
 	// public static $table = 'tags';
 

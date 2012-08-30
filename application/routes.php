@@ -12,12 +12,12 @@
 
 
 
-//  La page index est une liste des albums
-// Route::get('/', function() {
-//     $albums = Album::with('user')->order_by('updated_at', 'desc')->paginate(5);
-//     return View::make('home')
-//         ->with('albums', $albums);
-// });
+// La page index est une liste des albums
+Route::get('/', function() {
+    $albums = Album::with('users')->order_by('updated_at', 'desc')->paginate(5);
+    return View::make('home')
+        ->with('albums', $albums);
+});
 
 
 
@@ -31,7 +31,8 @@ Route::post('login', function() {
 
     $userinfo = array(
         'username' => Input::get('username'),
-        'password' => Input::get('password')
+        'password' => Input::get('password'),
+        'remember' => !empty($remember) ? $remember : null
     );
     if ( Auth::attempt($userinfo) )
     {
@@ -54,17 +55,95 @@ Route::get('logout', function() {
 
 // La route vers le panneau d'admin
 Route::get('dashboard', array('before' => 'auth', 'do' => function() {
-    $albums = Album::with('user')->order_by('updated_at', 'desc')->paginate(15);
+    $albums = Album::with('users')->order_by('updated_at', 'desc')->paginate(15);
     return View::make('dashboard')
         ->with('albums', $albums);
 }));
-
-
-
 // La route vers la page de création d'un nouvelle album
 Route::get('dashboard/new', array('before' => 'auth', 'do' => function() {
     $user = Auth::user();
     return View::make('dashboard.new')->with('user', $user);
+}));
+// Sav dans db l'album
+Route::post('dashboard/new', array('before' => 'auth', 'do' => function() {
+
+    $new_album = array(
+        'name'    => Input::get('name'),
+        'artist'    => Input::get('artist'),
+        'label'    => Input::get('label'),
+        'year'    => Input::get('year'),
+        'description'     => Input::get('description'),
+        'tracklist'   => Input::get('tracklist'),
+        'price'    => Input::get('price'),
+        'quantity'     => Input::get('quantity'),
+        'albumtags'     => Input::get('albumtags'),
+        'user_id'   => Input::get('user_id'),
+        'picture' => File::get('picture'),
+    );
+
+    $rules = array(
+        'name'     => 'required|min:0|max:255',
+        'artist'      => 'required',
+        'label'      => 'required',
+        'year'      => 'required|min:4',
+        'description'      => 'required|min:10',
+        'price'      => 'required|min:1',
+        'quantity'      => 'required',
+        'albumtags'     => 'required|min:1',
+        'picture' => 'required|image|max:35000',
+    );
+    
+    $validation = Validator::make($new_album, $rules);
+    if ( $validation -> fails() )
+    {
+        return Redirect::to('admin')
+                ->with('user', Auth::user())
+                ->with_errors($validation)
+                ->with_input();
+    }
+
+    $pictureExtension = File::extension($input['picture']['name']);
+
+    $pictureDirectory = 'public/uploads/pictures/'.sha1(Auth::user()->id);
+    $thumbFeatDirectory = 'public/uploads/thumbs/'.sha1(Auth::user()->id);
+    $thumbCatDirectory = 'public/uploads/thumbs/'.sha1(Auth::user()->id);
+
+    $pictureFilename = sha1(Auth::user()->id.time()).".{$pictureExtension}";
+
+    $image = Input::file('pictureUpload');
+
+        $pic_upload_success = Resizer::open($image)
+                ->resize(466 , 351 , 'auto')
+                ->save( $pictureDirectory.'/'.$pictureFilename , 90);
+
+        // $thumbFeat = Input::file('pictureUpload');
+
+        $thumbFeat_upload_success = Resizer::open($image)
+                ->resize(466 , 345 , 'crop')
+                ->save( $thumbFeatDirectory.'/'.$pictureFilename , 90);
+
+        // $thumbCat = Input::file('pictureUpload');
+
+        $thumbCat_upload_success = Resizer::open($image)
+                ->resize(260 , 200 , 'crop')
+                ->save( $thumbCatDirectory.'/'.$pictureFilename , 90);
+
+    // setting up array with picture info
+            $picture = new Picture(array(
+                'addon_id' => $album->id,
+                'location' => '_uploads/pictures/'.sha1(Auth::user()->id).'/'.$pictureFilename,
+                'thumbfeat' => '_uploads/thumbsFeat/'.sha1(Auth::user()->id).'/'.$pictureFilename,
+                'thumbcat' => '_uploads/thumbsCat/'.sha1(Auth::user()->id).'/'.$pictureFilename,
+             ));
+            $album->pictures()->save($picture);
+
+    // On le sauv quand il a passé la validation
+    $album = new Album($new_album);
+    $album->save();
+
+    
+    // redirect vers la main du dashboard
+    return Redirect::to('/dashboard');
 }));
 
 
@@ -97,50 +176,6 @@ Route::put('album/(:num)', array('before' => 'auth', 'do' => function($id){
 })) ;
 
 
-// Sav dans db l'album
-Route::post('admin/new', array('before' => 'auth', 'do' => function() {
-
-
-
-    $new_album = array(
-        'name'    => Input::get('name'),
-        'artist'    => Input::get('artist'),
-        'label'    => Input::get('label'),
-        'year'    => Input::get('year'),
-        'description'     => Input::get('description'),
-        'tracklist'   => Input::get('tracklist'),
-        'price'    => Input::get('price'),
-        'quantity'     => Input::get('quantity'),
-        'album_tags'     => Input::get('album_tags'),
-        'user_id'   => Input::get('user_id'),
-  //      'picture_id' => 
-    );
-
-    $rules = array(
-        'name'     => 'required|min:0|max:255',
-        'description'      => 'required|min:10'
-        //etc......
-    );
-    
-    $validation = Validator::make($new_album, $rules);
-    if ( $validation -> fails() )
-    {
-        
-        return Redirect::to('admin')
-                ->with('user', Auth::user())
-                ->with_errors($validation)
-                ->with_input();
-    }
-
-
-    // On le sauv quand il a passé la validation
-    $album = new Album($new_album);
-    $album->save();
-
-    
-    // redirect vers la main du dashboard
-    return Redirect::to('/dashboard');
-}));
 
 
 //fait chier celui du haut emeche le controleur
@@ -152,62 +187,10 @@ Route::post('admin/new', array('before' => 'auth', 'do' => function() {
 
 
 
-//
-//
-//
-//
-//
-// Live search route
-Route::post('liveSearch', function() {
-
-    // Checking if it's an ajax request
-    if (Request::ajax()) {
-
-        // Getting ajax request
-        $searchInput = Input::get('searchInput');
-
-        // Making sure input is not empty
-        if ($searchInput != '') {
-
-            // Getting info from DB
-            $addons = Addon::where('name', 'LIKE', '%'.$searchInput.'%')->order_by('name')->take(4)->get();
-            $tags = Tag::where('name', 'LIKE', '%'.$searchInput.'%')->order_by('name')->take(4)->get();
-
-            echo '<div class="six columns">';
-            echo '<ul id="searchResults">';
-            echo '<li>Addons ►</li>';
-
-            // Sending back array info
-            foreach ($addons as $addon) {
-                echo '<li class="helperResult">'.HTML::link('addon?id='.$addon->id, $addon->name).'</li>';
-            }
-            echo '</ul>';
-            echo '</div>';
-
-            echo '<div class="six columns">';
-            echo '<ul id="searchResults">';
-            echo '<li>Tags ►</li>';
-
-            // Sending back array info
-            foreach ($tags as $tag) {
-                echo '<li class="helperResult">'.HTML::link('tag?tag='.$tag->id, $tag->name).'</li>';
-            }
-            echo '</ul>';
-            echo '</div>';
-        }else{
-
-            // var_dump($searchInput);
-        }
-    }
-});
-
-
-
 // conditions géénérale de vente 
 Route::get('conditions', function() {
     return View::make('frontend.conditions');
 });
-
 
 
 
@@ -282,8 +265,53 @@ Route::group(array('before' => 'auth'), function()
 */
 
 
-Route::controller(Controller::detect());
 
+
+
+//blog
+Route::get('blog', array('as'=>'blog', 'uses'=>'blog@index'));
+Route::get('blog/(:any)', array('as'=>'blog', 'uses'=>'blog@view'));
+
+Route::get('dashboard/blog/new', array('as'=>'new_blog', 'uses'=>'blog@new'));
+// Route::post('dashboard/blog/new/post', array('uses'=>'blog@create'));
+
+Route::post('dashboard/blog/new', array('before' => 'auth', 'do' => function() {
+    $user = Auth::user();
+    return View::make('dashboard/blog/new')->with('user', $user);
+
+    $new_blog = array(
+        'title'    => Input::get('title'),
+        'description'  => Input::get('description'),
+        'user_id'   => Input::get('user_id')
+    );
+
+    $rules = array(
+        'title'     => 'required|min:5|max:255',
+        'description'      => 'required|min:10'
+    );
+    
+    $validation = Validator::make($new_ablog, $rules);
+    if ( $validation -> fails() )
+    {
+        
+        return Redirect::to('dashboard')
+                ->with('user', Auth::user())
+                ->with_errors($validation)
+                ->with_input();
+    }
+
+
+    // On le sauv quand il a passé la validation
+    $blog = new Blog($new_blog);
+    $blog->save();
+
+    
+    // redirect to viewing all albums
+    return Redirect::to('dashboard');
+}));
+
+
+Route::controller(Controller::detect());
 
 /*
 |--------------------------------------------------------------------------
