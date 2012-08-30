@@ -40,10 +40,10 @@
 
 @section('shoppingcart')
 
-        <div class="row">
+<!--         <div class="row">
             <div class="span8">
                 {{ $albums -> links(); }}
              </div>
-        </div>    
+        </div>  -->   
 
 @endsection

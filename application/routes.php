@@ -19,7 +19,7 @@ Route::get('/', function() {
         ->with('albums', $albums);
 });
 Route::get('album/(:any)', function() {
-    $albums = Album::with('users')->order_by('updated_at', 'desc')->paginate(5);
+    $albums = Album::with('users')->order_by('updated_at', 'desc')->paginate(1);
     return View::make('frontend.albumsingle')
         ->with('albums', $albums);
 });
